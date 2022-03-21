@@ -12,6 +12,7 @@
 }
 ```
 
+
 2. `#id`
 - Target by id
 - Target single element
@@ -23,6 +24,7 @@
    margin: auto;
 }
 ```
+
 
 3. `.class`
 - Target multiple elements
@@ -36,6 +38,7 @@ p.error { /* target all paragraphs with class error */
     color: blue;
 }
 ```
+
 
 4. `x`
 - Element selector
@@ -53,6 +56,7 @@ h1, h2, h3 {
     foo: bar;
 }
 ```
+
 
 ## Contextual selectors
 
