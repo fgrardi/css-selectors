@@ -60,7 +60,9 @@ h1, h2, h3 {
 
 ## Contextual selectors
 
+5. `x y`
 **Descendant** -- selects all `p` elements within the infinite-level hierarchy of element `#foo` descendants
+- When you need to be more specific with your selectors
 
 ``` CSS
 #foo p {
@@ -68,6 +70,7 @@ h1, h2, h3 {
 }
 ```
 
+6. `x + y`
 **Adjacent sibling** -- selects the sibling element `p` that is immediately next to `h2` element
 
 ``` CSS
@@ -76,7 +79,11 @@ h2 + p {
 }
 ```
 
+7. `x > y`
 **Child** -- selects all `p` elements that are immediate children of `#foo` element
+- Similar to `x y`
+- Only selects direct children
+- When working with JavaScript-based CSS selector engines
 
 ``` CSS
 #foo > p {
@@ -84,7 +91,9 @@ h2 + p {
 }
 ```
 
+8. `x ~ y`
 **General sibling** -- selects all elements `p` that are siblings to the `h2` element
+- Similar to `x + y` but less strict
 
 ``` CSS
 h2 ~ p {
@@ -94,10 +103,10 @@ h2 ~ p {
 
 
 ## Pseudo-class selectors
-
 ### Pseudo-class selectors for link and user states
 
-**Unvisited link** -- applies to link elements that have not been visited
+9. **Unvisited link** 
+We use the :link pseudo-class to target all anchor tags which have yet to be clicked on.
 
 ``` CSS
 a:link {
@@ -105,7 +114,7 @@ a:link {
 }
 ```
 
-**Visited link** -- applies to link elements that have been visited
+10. **Visited link** -- applies to link elements that have been visited
 
 ``` CSS
 a:visited {
@@ -113,7 +122,7 @@ a:visited {
 }
 ```
 
-**Focus state** -- applies to selected `.foo` element that is ready for input 
+11. **Focus state** -- applies to selected `.foo` element that is ready for input 
 
 ``` CSS
 .foo:focus {
@@ -121,7 +130,7 @@ a:visited {
 }
 ```
 
-**Focus within state** -- applies to selected `.foo` element that is focused or has any focused child
+12. **Focus within state** -- applies to selected `.foo` element that is focused or has any focused child
 
 ``` CSS
 .foo:focus-within {
@@ -129,7 +138,7 @@ a:visited {
 }
 ```
 
-**Hover state** -- applies when mouse pointer is over the `.foo` element
+13. **Hover state** -- applies when mouse pointer is over the `.foo` element
 
 ``` CSS
 .foo:hover {
@@ -137,7 +146,7 @@ a:visited {
 }
 ```
 
-**Active state** -- applies when `.foo` element is in process of being clicked
+14. **Active state** -- applies when `.foo` element is in process of being clicked
 
 ``` CSS
 .foo:active {
@@ -145,10 +154,34 @@ a:visited {
 }
 ```
 
+15. **Checked state** -- targets an ui element that has been checked--like a radio button
+
+``` CSS
+input[type=radio]:checked {
+    border: 1px solid black;
+}
+```
+
+16. **Before and after** -- generate content arount selected element
+- When `overflow: hidden;` isn't possible
+
+``` CSS
+.clearfix:after {
+    ...
+}
+```
+
+17. **Negation** -- select everything except for one element
+
+``` CSS
+*:not(p) {
+    color: green;
+}
+```
 
 ### Pseudo-class selectors that apply to siblings
 
-**First child** -- selects the specified `.foo` element when it is the first child of its parent
+18. **First child** -- selects the specified `.foo` element when it is the first child of its parent
 
 ``` CSS
 .foo:first-child {
@@ -156,7 +189,7 @@ a:visited {
 }
 ```
 
-**Last child** -- selects the specified `.foo` element when it is the last child of its parent
+19. **Last child** -- selects the specified `.foo` element when it is the last child of its parent
 
 ``` CSS
 .foo:last-child {
@@ -164,7 +197,7 @@ a:visited {
 }
 ```
 
-**Only child** -- selects the specified `.foo` element when it is the only child of its parent
+20. **Only child** -- selects the specified `.foo` element when it is the only child of its parent
 
 ``` CSS
 .foo:only-child {
@@ -172,7 +205,7 @@ a:visited {
 }
 ```
 
-**First of type** -- selects the `h2` element when it is the first element of its type within its parent element
+21. **First of type** -- selects the `h2` element when it is the first element of its type within its parent element
 
 ``` CSS
 h2:first-of-type {
@@ -180,7 +213,7 @@ h2:first-of-type {
 }
 ```
 
-**Last of type** -- selects the `h2` element when it is the last element of its type within its parent element
+22. **Last of type** -- selects the `h2` element when it is the last element of its type within its parent element
 
 ``` CSS
 h2:last-of-type {
@@ -188,7 +221,7 @@ h2:last-of-type {
 }
 ```
 
-**Only of type** -- selects the `h2` element when it is the only element of its type within its parent element
+23. **Only of type** -- selects the `h2` element when it is the only element of its type within its parent element
 
 ``` CSS
 h2:only-of-type {
@@ -196,7 +229,7 @@ h2:only-of-type {
 }
 ```
 
-**Nth child** -- selects the `n`th `.foo` child element
+24. **Nth child** -- selects the `n`th `.foo` child element
 
 ``` CSS
 .foo:nth-child(n) {
@@ -204,7 +237,7 @@ h2:only-of-type {
 }
 ```
 
-**Nth last child** -- selects the `n`th `.foo` child element counting backwards
+25. **Nth last child** -- selects the `n`th `.foo` child element counting backwards
 
 ``` CSS
 .foo:nth-last-child(n) {
@@ -212,7 +245,7 @@ h2:only-of-type {
 }
 ```
 
-**Nth of type** -- selects the `n`th `h2` child element of its type
+26. **Nth of type** -- selects the `n`th `h2` child element of its type
 
 ``` CSS
 h2:nth-of-type(n) {
@@ -220,7 +253,7 @@ h2:nth-of-type(n) {
 }
 ```
 
-**Nth last of type** -- selects the `n`th `h2` child element of its type counting backwards
+27. **Nth last of type** -- selects the `n`th `h2` child element of its type counting backwards
 
 ``` CSS
 h2:nth-last-of-type(n) {
@@ -229,7 +262,6 @@ h2:nth-last-of-type(n) {
 ```
 
 Useful `n` values:
-
 - `odd` or `2n+1` -- every odd child or element
 - `even` or `2n` -- every even child or element
 - `n` -- every nth child or element
@@ -240,8 +272,10 @@ Useful `n` values:
 
 
 ### Pseudo-element selectors
+We can use pseudo elements (designated by ::) to style fragments of an element, such as the first line or the first letter. Keep in mind that these must be applied to block-level elements in order to take effect.
 
-**First letter** -- selects the first letter of the specified `.foo` element, commonly used with `:first-child` to target first paragraph
+
+28. **First letter** -- selects the first letter of the specified `.foo` element, commonly used with `:first-child` to target first paragraph
 
 ``` CSS
 .foo::first-letter {
@@ -249,7 +283,7 @@ Useful `n` values:
 }
 ```
 
-**First line** -- selects the first line of the specified `.foo` element, commonly used with `:first-child` to target first paragraph
+29. **First line** -- selects the first line of the specified `.foo` element, commonly used with `:first-child` to target first paragraph
 
 ``` CSS
 .foo::first-line {
@@ -257,7 +291,7 @@ Useful `n` values:
 }
 ```
 
-**Before** -- adds generated content before the `.foo` element when used with `content` property
+30. **Before** -- adds generated content before the `.foo` element when used with `content` property
 
 ``` CSS
 .foo::before {
@@ -266,7 +300,7 @@ Useful `n` values:
 }
 ```
 
-**After** -- adds generated content after the `.foo` element when used with `content` property
+40. **After** -- adds generated content after the `.foo` element when used with `content` property
 
 ``` CSS
 .foo::after {
@@ -278,7 +312,7 @@ Useful `n` values:
 
 ## Attribute selectors
 
-**Present** -- selects `.foo` elements with `bar` attribute present, regardless of its value
+41. **Present** -- selects `.foo` elements with `bar` attribute present, regardless of its value
 
 ``` CSS
 .foo[bar] {
@@ -286,7 +320,7 @@ Useful `n` values:
 }
 ```
 
-**Exact** -- selects `.foo` elements where the `bar` attribute has the exact value of `fum`
+42. **Exact** -- selects `.foo` elements where the `bar` attribute has the exact value of `fum`
 
 ``` CSS
 .foo[bar="fum"] {
@@ -294,7 +328,7 @@ Useful `n` values:
 }
 ```
 
-**Whitespace separated** -- selects `.foo` elements with `bar` attribute values contain specified partial value of `fum` (whitespace separated)
+43. **Whitespace separated** -- selects `.foo` elements with `bar` attribute values contain specified partial value of `fum` (whitespace separated)
 
 ``` CSS
 .foo[bar~="fum"] {
@@ -302,7 +336,7 @@ Useful `n` values:
 }
 ```
 
-**Hyphen separated** -- selects `.foo` elements with `bar` attribute values contain specified partial value of `fum` immediately followed by hyphen (`-`) character
+44. **Hyphen separated** -- selects `.foo` elements with `bar` attribute values contain specified partial value of `fum` immediately followed by hyphen (`-`) character
 
 ``` CSS
 .foo[bar|="fum"] {
@@ -310,7 +344,7 @@ Useful `n` values:
 }
 ```
 
-**Begins with** -- selects `.foo` elements where the `bar` attribute begins with `fum`
+45. **Begins with** -- selects `.foo` elements where the `bar` attribute begins with `fum`
 
 ``` CSS
 .foo[bar^="fum"] {
@@ -318,7 +352,7 @@ Useful `n` values:
 }
 ```
 
-**Ends with** -- selects `.foo` elements where the `bar` attribute ends with `fum`
+46. **Ends with** -- selects `.foo` elements where the `bar` attribute ends with `fum`
 
 ``` CSS
 .foo[bar$="fum"] {
@@ -326,7 +360,7 @@ Useful `n` values:
 }
 ```
 
-**Contains** -- selects `.foo` elements where the `bar` attribute contains string `fum` followed and preceded by any number of other characters
+47. **Contains** -- selects `.foo` elements where the `bar` attribute contains string `fum` followed and preceded by any number of other characters
 
 ``` CSS
 .foo[bar*="fum"] {
